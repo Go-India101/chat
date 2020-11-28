@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>NEHA - By GO INDIA</title>
+<script type="text/javascript" src="index.js"></script>
+<link rel="stylesheet" href="style.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="icon" href="microphone.png" type="image/icon">
+<meta name="title" content="NEHA  - By Go India">
+<meta name="description" content="An Inteligent Chatbot by Go India with high Graphics Animations">
+<meta name="keywords" content="Go India">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@700&display=swap" rel="stylesheet">
+</head>
+<body onload="hideloading()">
+  <center>
+   <div class="containerl" id="loader"> <div class="l1" id="l1"></div></div>
+    <div id='bodybox'>
+        <div id='chatborder'>
+          <p id="chatlog7" class="chatlog">&nbsp;</p>
+          <p id="chatlog6" class="chatlog">&nbsp;</p>
+          <p id="chatlog5" class="chatlog">&nbsp;</p>
+          <p id="chatlog4" class="chatlog">&nbsp;</p>
+          <p id="chatlog3" class="chatlog">&nbsp;</p>
+          <p id="chatlog2" class="chatlog">&nbsp;</p>
+          <p id="chatlog1" class="chatlog">&nbsp;</p>
+        
+          <input type="text" name="chat" id="chatbox" placeholder="I Am Neha By GO INDIA. You Can Talk With Me" onfocus="placeHolder()" autocomplete = "off">
+         <span><img id ="micro" src="microphone.png" onclick="startDictation()"></span>
+                 </div>
+                 <div id = "waves con" style="display: none;">
+<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+<defs>
+<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+</defs>
+<g class="parallax">
+<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255, 68, 0, 0.7)" />
+<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255, 68, 0 , 0.5)" />
+<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255, 68, 0, 0.678)" />
+<use xlink:href="#gentle-wave" x="48" y="7" fill="orangered" />
+</g>
+</svg>
+</div>
+<!--Waves end-->
+
+</div>
+                 <script>
+                  function startDictation() {
+                
+                    if (window.hasOwnProperty('webkitSpeechRecognition' , 'mozSpeechRecognition')) {
+                      document.getElementById('waves con').style.display = "block";
+                
+                      var recognition = new webkitSpeechRecognition();
+                
+                      recognition.continuous = false;
+                      recognition.interimResults = false;
+                
+                      recognition.lang = "en-US" , "hi";
+                      recognition.start();
+                
+                      recognition.onresult = function(e) {
+                        document.getElementById('chatbox').value
+                                                 = e.results[0][0].transcript;
+                        recognition.stop();
+                        document.getElementById('waves con').style.display = "none";
+                        document.getElementById('chatbox').submit();
+                        
+                      };
+                
+                      recognition.onerror = function(e) {
+                        recognition.stop();
+                      }
+                
+                    }
+                  }
+                </script>
+                <script>
+                function hideloading() {
+                  document.getElementById("loader").style.opacity = "0";
+                  document.getElementById("loader").style.zIndex = "-1";
+                  }
+                  </script>
+       
+      </div>
+      </center>>
+</body>
+</html>
